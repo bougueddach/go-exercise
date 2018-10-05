@@ -17,7 +17,7 @@ func (router *router) InitRouter() *chi.Mux {
 }
 
 func (router *router) InitUserProxyRoutes(r *chi.Mux) {
-	userProxy := ServiceContainer().InjectUserProxy()
+	userProxy := ControllerContainer().InjectUserProxy()
 	r.Get("/user/{id}", userProxy.GetUserProfile)
 	r.Post("/user/{id}", userProxy.UpdateUserProfile)
 }
