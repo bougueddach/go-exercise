@@ -1,7 +1,7 @@
 package controllers
 
-import "go-exercise/entities"
+import "go-exercise/dtos"
 
 type IUserController interface {
-	GetUser(id int64) (entities.User)
+	GetUser(id int64) dtos.UserDTO
 }

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"go-exercise/entities"
+	"go-exercise/dtos"
 	"go-exercise/repositories"
 )
 
@@ -9,10 +9,10 @@ type UserController struct {
 	repositories.IUserRepository
 }
 
-func (controller *UserController) GetUser(id int64) (entities.User) {
+func (controller *UserController) GetUser(id int64) dtos.UserDTO {
 	user, err := controller.FindById(id)
 	if err != nil {
 		panic(err)
 	}
-	return user
+	return dtos.UserDTO{user.Id, user.Name, user.Email, user.Avatar}
 }

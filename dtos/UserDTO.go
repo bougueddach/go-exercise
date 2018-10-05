@@ -1,6 +1,6 @@
-package vms
+package dtos
 
-type UserVM struct {
+type UserDTO struct {
 	Id     int64
 	Name   string
 	Email  string
