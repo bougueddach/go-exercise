@@ -21,3 +21,14 @@ func (repository *UserRepository) FindById(id int64) (entities.User, error) {
 	}
 	return entities.User{}, nil // That's a bad hack, I should let the client know that I couldn't find it
 }
+
+func (repository *UserRepository) Save(user *entities.User) error {
+	for i := range users {
+		if users[i].Id == user.Id {
+			users[i] = *user
+			break
+		}
+	}
+	//Save() should add it to the slice when not exist but we don't need it
+	return nil
+}

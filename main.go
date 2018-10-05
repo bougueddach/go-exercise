@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/go-chi/chi"
 	"go-exercise/controllers"
 	"go-exercise/proxies"
 	"go-exercise/repositories"
@@ -8,15 +9,13 @@ import (
 	"sync"
 )
 
-func main()  {
+func main() {
 	userProxy := ServiceContainer().InjectUserProxy()
-	http.HandleFunc("/user", userProxy.GetUserProfile)
+	r := chi.NewRouter()
+	r.Get("/user/id", userProxy.GetUserProfile)
+	r.Post("/user/id", userProxy.UpdateUserProfile)
 	host := "localhost:8080"
-	runServer(host)
-}
-
-func runServer(host string) error {
-	return http.ListenAndServe(host, nil)
+	http.ListenAndServe(host, r)
 }
 
 type IServiceContainer interface {
