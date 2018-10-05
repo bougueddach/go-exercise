@@ -12,8 +12,8 @@ import (
 func main() {
 	userProxy := ServiceContainer().InjectUserProxy()
 	r := chi.NewRouter()
-	r.Get("/user/id", userProxy.GetUserProfile)
-	r.Post("/user/id", userProxy.UpdateUserProfile)
+	r.Get("/user/{id}", userProxy.GetUserProfile)
+	r.Post("/user/{id}", userProxy.UpdateUserProfile)
 	host := "localhost:8080"
 	http.ListenAndServe(host, r)
 }

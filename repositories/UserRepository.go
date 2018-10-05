@@ -13,7 +13,7 @@ type UserRepository struct {
 	UserRepository IUserRepository
 }
 
-func (repository *UserRepository) FindById(id int64) (entities.User, error) {
+func (repository *UserRepository) FindById(id int) (entities.User, error) {
 	for i := range users {
 		if users[i].Id == id {
 			return users[i], nil
