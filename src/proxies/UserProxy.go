@@ -3,8 +3,8 @@ package proxies
 import (
 	"encoding/json"
 	"github.com/go-chi/chi"
-	"go-exercise/controllers"
-	"go-exercise/vms"
+	"go-exercise/src/controllers"
+	"go-exercise/src/vms"
 	"io/ioutil"
 	"net/http"
 	"strconv"

@@ -1,6 +1,6 @@
 package repositories
 
-import "go-exercise/entities"
+import "go-exercise/src/entities"
 
 type IUserRepository interface {
 	FindById(id int) (entities.User, error)

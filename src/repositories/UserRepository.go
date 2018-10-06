@@ -1,6 +1,6 @@
 package repositories
 
-import "go-exercise/entities"
+import "go-exercise/src/entities"
 
 var (
 	u1    = entities.User{1, "omar", "bougueddach@gmail.com", "picture"}

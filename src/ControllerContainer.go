@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go-exercise/controllers"
-	"go-exercise/proxies"
-	"go-exercise/repositories"
+	"go-exercise/src/controllers"
+	"go-exercise/src/proxies"
+	"go-exercise/src/repositories"
 )
 
 type IServiceContainer interface {

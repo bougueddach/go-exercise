@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"go-exercise/dtos"
-	"go-exercise/repositories"
+	"go-exercise/src/dtos"
+	"go-exercise/src/repositories"
 )
 
 type UserController struct {

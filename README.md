@@ -6,4 +6,4 @@ Setup dependencies
 
 Run the app on port 8080
 
-    go build && ./go-exercise
+    go build && ./src

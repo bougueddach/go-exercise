@@ -1,6 +1,6 @@
 package controllers
 
-import "go-exercise/dtos"
+import "go-exercise/src/dtos"
 
 type IUserController interface {
 	GetUser(id int) dtos.UserDTO
