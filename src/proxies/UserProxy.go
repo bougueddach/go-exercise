@@ -12,6 +12,7 @@ import (
 
 type UserProxy struct {
 	controllers.IUserController
+	IProxyController
 }
 
 func (proxy UserProxy) GetUserProfile(res http.ResponseWriter, req *http.Request) {
@@ -21,7 +22,8 @@ func (proxy UserProxy) GetUserProfile(res http.ResponseWriter, req *http.Request
 		http.Error(res, "Bad url param", http.StatusBadRequest)
 	}
 	dto := proxy.GetUser(id)
-	json.NewEncoder(res).Encode(vms.UserVM{dto.Id, dto.Name, dto.Email, dto.Avatar})
+	vm := vms.UserVM{dto.Id, dto.Name, dto.Email, dto.Avatar}
+	proxy.OK(res, vm)
 }
 
 func (proxy UserProxy) UpdateUserProfile(res http.ResponseWriter, req *http.Request) {

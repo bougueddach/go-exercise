@@ -16,7 +16,8 @@ func (k *kernel) InjectUserProxy() proxies.UserProxy {
 
 	userRepository := &repositories.UserRepository{}
 	userController := &controllers.UserController{userRepository}
-	userProxy := proxies.UserProxy{userController}
+	proxyController := &proxies.ProxyController{}
+	userProxy := proxies.UserProxy{userController, proxyController}
 
 	return userProxy
 }

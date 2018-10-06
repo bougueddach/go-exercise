@@ -1,4 +1,8 @@
 package proxies
 
-// try to move json conversion here
-// try to make routes come from here
+import "net/http"
+
+type IProxyController interface {
+	OK(res http.ResponseWriter, vm interface{})
+	// add more to handle more cases if still time
+}
