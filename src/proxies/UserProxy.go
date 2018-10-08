@@ -1,11 +1,9 @@
 package proxies
 
 import (
-	"encoding/json"
 	"github.com/go-chi/chi"
 	"go-exercise/src/controllers"
 	"go-exercise/src/vms"
-	"io/ioutil"
 	"net/http"
 	"strconv"
 )
@@ -32,15 +30,7 @@ func (proxy UserProxy) UpdateUserProfile(res http.ResponseWriter, req *http.Requ
 	if err != nil {
 		http.Error(res, "Bad url param", http.StatusBadRequest)
 	}
-	body, err := ioutil.ReadAll(req.Body)
-	if err != nil {
-		http.Error(res, "Error converting results to json", http.StatusInternalServerError)
-	}
-
-	var vm vms.UserUpdateVM
-	err = json.Unmarshal(body, &vm)
-	if err != nil {
-		http.Error(res, "Bad request body", http.StatusBadRequest)
-	}
+	vm := vms.UserUpdateVM{}
+	proxy.ParseBody(req.Body, res, &vm)
 	proxy.UpdateUser(id, vm.Name, vm.Email, vm.Avatar)
 }
